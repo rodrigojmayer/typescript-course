@@ -1,39 +1,49 @@
+// let car: { brand: string; year: number } = { brand: 'toyota', year: 2020 };
 
-let awesomeName = 'shakeAndBake'
-awesomeName = 'something'
-awesomeName = awesomeName.toUpperCase()
-console.log(awesomeName)
+// car.brand = 'ford'
+// // car.color = 'blue'
 
-// awesomeName = 20
+// let car1: { brand: string; year: number } = { brand: 'audi', year: 2022 };
 
-let amount: number = 20
-amount = 12 - 1
-// amount = "pants"
+// let book = { title: 'book', cost: 20 }
+// let pen = { title: 'pen', cost: 10 }
+// let notebook = { title: 'notebook' }
 
-let isAwesome: boolean = true
-isAwesome = false
-// isAwesome = 'shakeAndBake'
+// let items:{ readonly title: string; cost?: number }[] = [book,pen,notebook]
+// items[0].title = 'new book'
 
-// ## Challenge
+// let bike:{ brand: string; year: number } = { brand: 'yamaha', year: 2010 }
+// // bike.year = 'old'
 
-// - Create a variable of type string and try to invoke a string method on it.
-// - Create a variable of type number and try to perform a mathematical operation on it.
-// - Create a variable of type boolean and try to perform a logical operation on it.
-// - Try to assign a value of a different type to each of these variables and observe the TypeScript compiler's response.
-// - You can use type annotation or inference
+// let laptop:{ brand: string; year: number } = { brand: 'Dell', year: 2020 }
+// // let laptop2:{ brand: string; year: number } = { brand: 'HP' }
 
-let varStrin: string = "Challenge"
-varStrin = varStrin.charAt(2)
-console.log(varStrin)
+// let product1 = { title:'shirt', price: 20 }
+// let product2 = { title:'pants'}
+// let products: { title:string, price?: number }[] = [product1, product2]
 
-let varNum: number = 3
-varNum = varNum * 5
-console.log(varNum)
+// products.push({ title: 'shoes' })
 
-let varBool: boolean = true
-if(varBool)
-    console.log(varNum+varStrin)
 
-// varStrin = 10
-// varNum = "thirty"
-// varBool = "yes"
+// function sayHi(name:string){
+//     console.log(`Hello there ${name.toUpperCase()}`)
+// }
+
+// sayHi('john')
+// // sayHi(3)
+
+
+// function calculateDiscount(price:number): number {
+//     const hasDiscount = true
+    
+//     if(hasDiscount){
+//         return price
+//         // return 'Discount Applied'
+//     }
+    
+//     return price * 0.9
+// }
+
+// const finalPrice = calculateDiscount(200)
+
+
