@@ -47,3 +47,38 @@
 // const finalPrice = calculateDiscount(200)
 
 
+// function sum(message:string, ...numbers:number[]): string {
+//     const doubled = numbers.map((num) => num * 2)
+//     console.log(doubled)
+
+
+//     let total = numbers.reduce((previous, current)=>{
+//         return previous + current
+//     }, 0)
+//     return `${message}${total}`
+// }
+
+// let result = sum('The total is: ', 1, 2, 3, 4, 5)
+// console.log(result)
+
+
+// // function doesn't return
+// function logMessage(message: string): void {
+//     console.log(message)
+//     // return 'hello world'
+// }
+
+// logMessage('Hello, Typescript')
+
+
+// // Type guard: to check the parameter at the runtime 
+// function processInput(input: string | number) {
+//     if (typeof input === "number") {
+//         console.log(input * 2)
+//     } else {
+//         console.log(input.toLowerCase())
+//     }
+// }
+
+// processInput(10)
+// processInput("Hello")
