@@ -82,3 +82,53 @@
 
 // processInput(10)
 // processInput("Hello")
+
+
+// function createEmployee({ id }: { id: number }) : {
+//     id: number;
+//     isActive: boolean;
+// } {
+//     return { id, isActive: id % 2 === 0};
+// }
+
+// const first = createEmployee({ id: 1 });
+// const second = createEmployee({ id: 2 });
+// console.log(first, second);
+
+// // alternative
+
+// function createStudent(student:{id:number;name:string}):void{
+//     console.log(`Welcome to the course ${student.name.toUpperCase()}!!!`);
+// }
+
+// const newStudent = {
+//     id: 5,
+//     name: 'anna',
+//     email: 'anna@gmail.com'
+// };
+
+// createStudent(newStudent)
+// createStudent({ id:1, name: 'bob' })
+
+
+// ## Challenge
+
+function processData(input: string | number, config: {reverse:boolean} = {reverse:false}): number | string {
+    // console.log("testing");
+
+    if (typeof input === "number") {
+        return input * input;
+    } else {
+        let str = input
+        if(config.reverse) {
+            str = str.split("").reverse().join();
+        }
+        str = str.toUpperCase();
+        return str;
+    }
+
+}
+
+console.log(processData(3))
+console.log(processData("four"))
+console.log(processData("five", {reverse: true}))
