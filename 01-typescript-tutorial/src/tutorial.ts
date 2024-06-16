@@ -172,27 +172,63 @@
 //   setTheme('dark')
 
 
-// ## Challenge
+// // ## Challenge
 
-type Employee = { id: number; name: string; department: string }
-type Manager = { id: number; name: string; employees: Employee[] }
-type Staff = Employee | Manager
+// type Employee = { id: number; name: string; department: string }
+// type Manager = { id: number; name: string; employees: Employee[] }
+// type Staff = Employee | Manager
 
-function printStaffDetails(staff: Staff): void {
-    if('employees' in staff) {
-        console.log(
-            `${staff.name} is a manager of ${staff.employees.length} employees`
-        )
-    } else {
-        console.log(
-            `${staff.name} is an employee in the ${staff.department} department`
-        )
-    }
-}
+// function printStaffDetails(staff: Staff): void {
+//     if('employees' in staff) {
+//         console.log(
+//             `${staff.name} is a manager of ${staff.employees.length} employees`
+//         )
+//     } else {
+//         console.log(
+//             `${staff.name} is an employee in the ${staff.department} department`
+//         )
+//     }
+// }
 
-const alice:Employee = { id: 1, name: 'alice', department: 'Sales'}
-const steve:Employee = { id: 2, name: 'steve', department: 'HR'}
+// const alice:Employee = { id: 1, name: 'alice', department: 'Sales'}
+// const steve:Employee = { id: 2, name: 'steve', department: 'HR'}
 
-const bob: Manager = { id: 1, name: 'bob', employees: [alice, steve] }
+// const bob: Manager = { id: 1, name: 'bob', employees: [alice, steve] }
 
-printStaffDetails(bob)
+// printStaffDetails(bob)
+
+
+// // Intersection type
+
+// type Book = { id: number; name: string; price: number }
+// type DiscountedBook = Book & { discount: number }
+
+// const book1: Book = {
+//     id: 1,
+//     name: 'how to cook a dragon',
+//     price: 15,
+// }
+// const book2: Book = {
+//     id: 2,
+//     name: 'the secret life of unicorns',
+//     price: 18,
+// }
+
+// // const discountedBook: Book & { discount: number } = {    // one way
+// const discountedBook: DiscountedBook = {
+//     id: 3,
+//     name: 'Gnomes vs Goblins: The Ultimate Guide',
+//     price: 25,
+//     discount: 0.15,
+// }
+
+
+// // Computed properties
+
+// const propName = 'age'
+
+// type Animal = {
+//     [propName]: number
+// }
+
+// let tiger: Animal = { [propName]: 5 }
