@@ -113,22 +113,60 @@
 
 // ## Challenge
 
-function processData(input: string | number, config: {reverse:boolean} = {reverse:false}): number | string {
-    // console.log("testing");
+// function processData(input: string | number, config: {reverse:boolean} = {reverse:false}): number | string {
+//     // console.log("testing");
 
-    if (typeof input === "number") {
-        return input * input;
-    } else {
-        let str = input
-        if(config.reverse) {
-            str = str.split("").reverse().join();
-        }
-        str = str.toUpperCase();
-        return str;
-    }
+//     if (typeof input === "number") {
+//         return input * input;
+//     } else {
+//         let str = input
+//         if(config.reverse) {
+//             str = str.split("").reverse().join();
+//         }
+//         str = str.toUpperCase();
+//         return str;
+//     }
 
-}
+// }
 
-console.log(processData(3))
-console.log(processData("four"))
-console.log(processData("five", {reverse: true}))
+// console.log(processData(3))
+// console.log(processData("four"))
+// console.log(processData("five", {reverse: true}))
+
+
+// type User = { id: number; name: string; isActive: boolean } 
+// const john: User = {
+//     id: 1,
+//     name: 'john',
+//     isActive: true,
+//   };
+//   const susan: User = {
+//     id: 1,
+//     name: 'susan',
+//     isActive: false,
+//   };
+  
+//   function createUser(user: User): User {
+//     console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+  
+//     return user;
+//   }
+
+
+//   type StringOrNumber = string | number;
+
+//   let value: StringOrNumber
+//   value = 'hello'
+//   value = 123
+
+//   type Theme = 'light' | 'dark'
+
+//   let theme: Theme
+//   theme = 'dark'
+//   theme = 'light'
+
+//   function setTheme(t: Theme) {
+//     theme = t
+//   }
+
+//   setTheme('dark')
