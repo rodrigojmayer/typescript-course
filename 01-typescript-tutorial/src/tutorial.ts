@@ -234,46 +234,70 @@
 // let tiger: Animal = { [propName]: 5 }
 
 
-// ## Interface - Fundamentals
+// // ## Interface - Fundamentals
 
-interface Book{
-    readonly isbn: number;
-    title: string;
-    author: string;
-    genre?: string;
-    // method
-    printAuthor(): void;
-    printTitle(message:string): string;
-    printSomething: (someValue: number) => number;
-}
-const deepWork: Book = {
-    isbn: 123,
-    title: 'deep work',
-    author: 'cal newport',
-    // genre: 'self-help',
-    printAuthor(){
-        console.log(this.author);
-    },
-    printTitle(message){
-        return `${this.title} ${message} modified`
-    },
-    // first option
-    // printSomething: function (someValue) {
-    //     return someValue;
-    // },
-    // second option
-    // printSomething: (someValue) => {
-    //     // console.log(this)
-    //     console.log(deepWork);
-    //     return someValue;
-    // }
-    // third option
-    printSomething(someValue) {
-        return someValue;
-    }
+// interface Book{
+//     readonly isbn: number;
+//     title: string;
+//     author: string;
+//     genre?: string;
+//     // method
+//     printAuthor(): void;
+//     printTitle(message:string): string;
+//     printSomething: (someValue: number) => number;
+// }
+// const deepWork: Book = {
+//     isbn: 123,
+//     title: 'deep work',
+//     author: 'cal newport',
+//     // genre: 'self-help',
+//     printAuthor(){
+//         console.log(this.author);
+//     },
+//     printTitle(message){
+//         return `${this.title} ${message} modified`
+//     },
+//     // first option
+//     // printSomething: function (someValue) {
+//     //     return someValue;
+//     // },
+//     // second option
+//     // printSomething: (someValue) => {
+//     //     // console.log(this)
+//     //     console.log(deepWork);
+//     //     return someValue;
+//     // }
+//     // third option
+//     printSomething(someValue) {
+//         return someValue;
+//     }
+// }
+
+// // // deepWork.isbn = 234;
+// // deepWork.printAuthor();
+// // console.log(deepWork.printTitle("Mensagito"));
+// console.log(deepWork.printSomething(123));
+
+
+// ## Challenge
+
+interface Computer {
+    readonly id: number;
+    brand: string;
+    ram: number;
+    storage?: number;
+    upgradeRam(increaseRam:number):number;
 }
 
-// // deepWork.isbn = 234;
-// deepWork.printAuthor();
-// console.log(deepWork.printTitle("Mensagito"));
-console.log(deepWork.printSomething(123));
+let compy: Computer = {
+    id:1, 
+    brand: "brandy", 
+    ram: 16,
+    upgradeRam(increaseRam){
+        return this.ram += increaseRam 
+    }    
+}
+
+console.log(compy.upgradeRam(10))
+console.log(compy.upgradeRam(4))
+console.log(compy)
