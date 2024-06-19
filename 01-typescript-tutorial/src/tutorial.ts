@@ -279,25 +279,86 @@
 // console.log(deepWork.printSomething(123));
 
 
-// ## Challenge
+// // ## Challenge
 
-interface Computer {
-    readonly id: number;
-    brand: string;
-    ram: number;
-    storage?: number;
-    upgradeRam(increaseRam:number):number;
+// interface Computer {
+//     readonly id: number;
+//     brand: string;
+//     ram: number;
+//     storage?: number;
+//     upgradeRam(increaseRam:number):number;
+// }
+
+// let compy: Computer = {
+//     id:1, 
+//     brand: "brandy", 
+//     ram: 16,
+//     upgradeRam(increaseRam){
+//         return this.ram += increaseRam 
+//     }    
+// }
+
+// console.log(compy.upgradeRam(10))
+// console.log(compy.upgradeRam(4))
+// console.log(compy)
+
+
+interface Person {
+    name: string;
+    getDetails(): string;
 }
 
-let compy: Computer = {
-    id:1, 
-    brand: "brandy", 
-    ram: 16,
-    upgradeRam(increaseRam){
-        return this.ram += increaseRam 
-    }    
+interface DogOwner{
+    dogName: string;
+    getDogDetails(): string;
 }
 
-console.log(compy.upgradeRam(10))
-console.log(compy.upgradeRam(4))
-console.log(compy)
+interface Person {
+    age: number;
+}
+
+const person:Person = {
+    name: 'john',
+    age: 30,
+    getDetails(){
+        return `Name: ${this.name}, Age: ${this.age}`;
+    }
+}
+
+console.log(person.getDetails())
+
+interface Employee extends Person {
+    employeeId: number;
+}
+
+const employee: Employee = {
+    name: 'jane',
+    age: 28,
+    employeeId: 123,
+    getDetails() {
+        return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`
+    }
+}
+
+console.log(employee.getDetails())
+
+interface Manager extends Person, DogOwner {
+    managePeople(): void;
+}
+
+const manager: Manager = {
+    name: 'bob',
+    age: 35,
+    dogName: 'rex',
+    getDetails() {
+        return `Name: ${this.name}, Age: ${this.age}`;
+    },
+    getDogDetails() {
+        return `Name: ${this.dogName}`;
+    },
+    managePeople() {
+        console.log("Managing people...")
+    }
+}
+
+manager.managePeople()
