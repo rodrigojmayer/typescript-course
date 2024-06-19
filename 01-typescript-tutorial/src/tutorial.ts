@@ -303,62 +303,125 @@
 // console.log(compy)
 
 
+// interface Person {
+//     name: string;
+//     getDetails(): string;
+// }
+
+// interface DogOwner{
+//     dogName: string;
+//     getDogDetails(): string;
+// }
+
+// interface Person {
+//     age: number;
+// }
+
+// const person:Person = {
+//     name: 'john',
+//     age: 30,
+//     getDetails(){
+//         return `Name: ${this.name}, Age: ${this.age}`;
+//     }
+// }
+
+// console.log(person.getDetails())
+
+// interface Employee extends Person {
+//     employeeId: number;
+// }
+
+// const employee: Employee = {
+//     name: 'jane',
+//     age: 28,
+//     employeeId: 123,
+//     getDetails() {
+//         return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`
+//     }
+// }
+
+// console.log(employee.getDetails())
+
+// interface Manager extends Person, DogOwner {
+//     managePeople(): void;
+// }
+
+// const manager: Manager = {
+//     name: 'bob',
+//     age: 35,
+//     dogName: 'rex',
+//     getDetails() {
+//         return `Name: ${this.name}, Age: ${this.age}`;
+//     },
+//     getDogDetails() {
+//         return `Name: ${this.dogName}`;
+//     },
+//     managePeople() {
+//         console.log("Managing people...")
+//     }
+// }
+
+// manager.managePeople()
+
+
+// ## Challenge - Part 1
+
 interface Person {
     name: string;
-    getDetails(): string;
-}
 
-interface DogOwner{
+}
+interface DogOwner extends Person {
     dogName: string;
-    getDogDetails(): string;
+
 }
 
-interface Person {
-    age: number;
-}
-
-const person:Person = {
-    name: 'john',
-    age: 30,
-    getDetails(){
-        return `Name: ${this.name}, Age: ${this.age}`;
-    }
-}
-
-console.log(person.getDetails())
-
-interface Employee extends Person {
-    employeeId: number;
-}
-
-const employee: Employee = {
-    name: 'jane',
-    age: 28,
-    employeeId: 123,
-    getDetails() {
-        return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`
-    }
-}
-
-console.log(employee.getDetails())
-
-interface Manager extends Person, DogOwner {
+interface Manager extends Person {
     managePeople(): void;
+    delegateTasks(): void;
 }
 
-const manager: Manager = {
-    name: 'bob',
-    age: 35,
-    dogName: 'rex',
-    getDetails() {
-        return `Name: ${this.name}, Age: ${this.age}`;
-    },
-    getDogDetails() {
-        return `Name: ${this.dogName}`;
-    },
-    managePeople() {
-        console.log("Managing people...")
+function getEmployee(): Person | DogOwner | Manager {
+    const random = Math.random();
+    if(random < 0.33 ) {
+        return {
+            name: 'John',
+        }
+    } else if (random  < 0.66) {
+        return {
+            name: 'Sarah',
+            dogName: 'Rex',
+        }
+    } else {
+        return {
+            name: 'Tom',
+            managePeople() {
+                console.log('Managing people.')
+            },
+            delegateTasks() {
+                console.log('Do that task please.')
+            }
+        }
     }
 }
 
-manager.managePeople()
+const employee : Person | DogOwner | Manager = getEmployee()
+console.log(employee.name)
+
+function isManager(obj: Person | DogOwner | Manager):obj is Manager {
+    return 'managePeople' in obj;
+}
+function isDogOwner(obj: Person | DogOwner | Manager):obj is DogOwner {
+    return 'dogName' in obj;
+}
+
+console.log(employee)
+if(isManager(employee)) {
+    console.log("Is manager")
+    employee.delegateTasks()
+} else if(isDogOwner(employee)) {
+    console.log("Is dog owner")
+    console.log(employee.dogName)
+    
+} else {
+    console.log("Is person")
+}
