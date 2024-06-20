@@ -364,64 +364,108 @@
 // manager.managePeople()
 
 
-// ## Challenge - Part 1
+// // ## Challenge - Part 1
 
-interface Person {
-    name: string;
+// interface Person {
+//     name: string;
 
-}
-interface DogOwner extends Person {
-    dogName: string;
+// }
+// interface DogOwner extends Person {
+//     dogName: string;
 
-}
+// }
 
-interface Manager extends Person {
-    managePeople(): void;
-    delegateTasks(): void;
-}
+// interface Manager extends Person {
+//     managePeople(): void;
+//     delegateTasks(): void;
+// }
 
-function getEmployee(): Person | DogOwner | Manager {
-    const random = Math.random();
-    if(random < 0.33 ) {
-        return {
-            name: 'John',
-        }
-    } else if (random  < 0.66) {
-        return {
-            name: 'Sarah',
-            dogName: 'Rex',
-        }
-    } else {
-        return {
-            name: 'Tom',
-            managePeople() {
-                console.log('Managing people.')
-            },
-            delegateTasks() {
-                console.log('Do that task please.')
-            }
-        }
-    }
-}
+// function getEmployee(): Person | DogOwner | Manager {
+//     const random = Math.random();
+//     if(random < 0.33 ) {
+//         return {
+//             name: 'John',
+//         }
+//     } else if (random  < 0.66) {
+//         return {
+//             name: 'Sarah',
+//             dogName: 'Rex',
+//         }
+//     } else {
+//         return {
+//             name: 'Tom',
+//             managePeople() {
+//                 console.log('Managing people.')
+//             },
+//             delegateTasks() {
+//                 console.log('Do that task please.')
+//             }
+//         }
+//     }
+// }
 
-const employee : Person | DogOwner | Manager = getEmployee()
-console.log(employee.name)
+// const employee : Person | DogOwner | Manager = getEmployee()
+// console.log(employee.name)
 
-function isManager(obj: Person | DogOwner | Manager):obj is Manager {
-    return 'managePeople' in obj;
-}
-function isDogOwner(obj: Person | DogOwner | Manager):obj is DogOwner {
-    return 'dogName' in obj;
-}
+// function isManager(obj: Person | DogOwner | Manager):obj is Manager {
+//     return 'managePeople' in obj;
+// }
+// function isDogOwner(obj: Person | DogOwner | Manager):obj is DogOwner {
+//     return 'dogName' in obj;
+// }
 
-console.log(employee)
-if(isManager(employee)) {
-    console.log("Is manager")
-    employee.delegateTasks()
-} else if(isDogOwner(employee)) {
-    console.log("Is dog owner")
-    console.log(employee.dogName)
+// console.log(employee)
+// if(isManager(employee)) {
+//     console.log("Is manager")
+//     employee.delegateTasks()
+// } else if(isDogOwner(employee)) {
+//     console.log("Is dog owner")
+//     console.log(employee.dogName)
     
-} else {
-    console.log("Is person")
+// } else {
+//     console.log("Is person")
+// }
+
+
+// let person: [string, number] = ['john', 25];
+
+// let date: readonly [number, number, number] = [12, 17, 2001];
+// // date.push(22)
+
+// function getPerson(): [string, number] {
+//     return ['john', 25];
+// }
+
+// let randomPerson = getPerson()
+// console.log(randomPerson[0]);
+
+// let susan: [string, number?] = ['susan']
+
+
+enum ServerResponseStatus {
+    Success = 200,
+    Error = 500,
 }
+
+Object.values(ServerResponseStatus).forEach((value) => {
+    if(typeof value === 'number') {
+        console.log(value)
+    }
+})
+
+console.log(ServerResponseStatus)
+
+interface ServerResponse {
+    result: ServerResponseStatus;
+    data: string[];
+}
+
+function getServerResponse(): ServerResponse{
+    return {
+        result: ServerResponseStatus.Success,
+        data: ['first item', 'second item'],
+    };
+}
+
+const response: ServerResponse = getServerResponse()
+console.log(response)
