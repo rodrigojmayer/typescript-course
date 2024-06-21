@@ -442,30 +442,59 @@
 // let susan: [string, number?] = ['susan']
 
 
-enum ServerResponseStatus {
-    Success = 200,
-    Error = 500,
+// enum ServerResponseStatus {
+//     Success = 200,
+//     Error = 500,
+// }
+
+// Object.values(ServerResponseStatus).forEach((value) => {
+//     if(typeof value === 'number') {
+//         console.log(value)
+//     }
+// })
+
+// console.log(ServerResponseStatus)
+
+// interface ServerResponse {
+//     result: ServerResponseStatus;
+//     data: string[];
+// }
+
+// function getServerResponse(): ServerResponse{
+//     return {
+//         result: ServerResponseStatus.Success,
+//         data: ['first item', 'second item'],
+//     };
+// }
+
+// const response: ServerResponse = getServerResponse()
+// console.log(response)
+
+
+// ## Challenge
+
+enum UserRole {
+    Admin,
+    Manager,
+    Employee
 }
 
-Object.values(ServerResponseStatus).forEach((value) => {
-    if(typeof value === 'number') {
-        console.log(value)
-    }
+type User = {
+    id: number,
+    name: string,
+    role: UserRole | string,
+    contact: [string, string]
+}
+
+function createUser(user:User): User {
+    return user
+}
+let pepe: User = createUser({
+    id: 1,
+    name: "Pepe",
+    role: UserRole[0],
+    contact: ["123", "456"]
 })
 
-console.log(ServerResponseStatus)
 
-interface ServerResponse {
-    result: ServerResponseStatus;
-    data: string[];
-}
-
-function getServerResponse(): ServerResponse{
-    return {
-        result: ServerResponseStatus.Success,
-        data: ['first item', 'second item'],
-    };
-}
-
-const response: ServerResponse = getServerResponse()
-console.log(response)
+console.log(pepe)
