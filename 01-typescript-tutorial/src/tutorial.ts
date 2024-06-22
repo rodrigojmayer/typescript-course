@@ -471,30 +471,48 @@
 // console.log(response)
 
 
-// ## Challenge
+// // ## Challenge
 
-enum UserRole {
-    Admin,
-    Manager,
-    Employee
-}
+// enum UserRole {
+//     Admin,
+//     Manager,
+//     Employee
+// }
 
-type User = {
-    id: number,
-    name: string,
-    role: UserRole | string,
-    contact: [string, string]
-}
+// type User = {
+//     id: number,
+//     name: string,
+//     role: UserRole | string,
+//     contact: [string, string]
+// }
 
-function createUser(user:User): User {
-    return user
-}
-let pepe: User = createUser({
-    id: 1,
-    name: "Pepe",
-    role: UserRole[0],
-    contact: ["123", "456"]
-})
+// function createUser(user:User): User {
+//     return user
+// }
+// let pepe: User = createUser({
+//     id: 1,
+//     name: "Pepe",
+//     role: UserRole[0],
+//     contact: ["123", "456"]
+// })
 
 
-console.log(pepe)
+// console.log(pepe)
+
+
+// let someValue: any = 'this is a string';
+
+// let strLenght: number = (someValue as string).length;
+
+// type Bird = {
+//     name: string;
+// };
+
+// let birdString = '{"name": "Eagle"}';
+// let dogString = '{"breed": "Poodle"}';
+
+// let birdObject = JSON.parse(birdString);
+// let dogObject = JSON.parse(dogString);
+
+// let bed = birdObject as Bird
+// let dog = dobObject as Bird
