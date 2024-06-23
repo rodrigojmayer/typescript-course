@@ -514,5 +514,26 @@
 // let birdObject = JSON.parse(birdString);
 // let dogObject = JSON.parse(dogString);
 
-// let bed = birdObject as Bird
-// let dog = dobObject as Bird
+// let bird = birdObject as Bird
+// let dog = dogObject as Bird
+
+// console.log(bird.name)
+// console.log(dog.name)
+
+
+enum Status {
+    Pending = 'pending',
+    Declined = 'declined',
+}
+
+type User = {
+    name: string;
+    status: Status;
+}
+
+// save Status.Pending in the DB as a string
+// retrieve string from the DB
+
+const statusValue = 'pending';
+
+const user:User = {name: 'john', status: statusValue as Status};
