@@ -521,19 +521,49 @@
 // console.log(dog.name)
 
 
-enum Status {
-    Pending = 'pending',
-    Declined = 'declined',
+// enum Status {
+//     Pending = 'pending',
+//     Declined = 'declined',
+// }
+
+// type User = {
+//     name: string;
+//     status: Status;
+// }
+
+// // save Status.Pending in the DB as a string
+// // retrieve string from the DB
+
+// const statusValue = 'pending';
+
+// const user:User = {name: 'john', status: statusValue as Status};
+
+
+let unknownValue: unknown;
+
+unknownValue = 'hello world';
+unknownValue = [1, 2, 3];
+unknownValue = 42.33455;
+
+if (typeof unknownValue === 'number') {
+    unknownValue.toFixed(2);
 }
 
-type User = {
-    name: string;
-    status: Status;
+function runSomeCode() {
+    const random = Math.random();
+    if (random < 0.5) {
+        throw new Error('there was error...');
+    } else {
+        throw 'some error';
+    }
 }
 
-// save Status.Pending in the DB as a string
-// retrieve string from the DB
-
-const statusValue = 'pending';
-
-const user:User = {name: 'john', status: statusValue as Status};
+try {
+    runSomeCode();
+} catch (error) {
+    if (error instanceof Error) {
+        console.log(error.message);
+    } else {
+        console.log(error)
+    }
+}
