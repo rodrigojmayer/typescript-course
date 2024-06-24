@@ -539,31 +539,70 @@
 // const user:User = {name: 'john', status: statusValue as Status};
 
 
-let unknownValue: unknown;
+// let unknownValue: unknown;
 
-unknownValue = 'hello world';
-unknownValue = [1, 2, 3];
-unknownValue = 42.33455;
+// unknownValue = 'hello world';
+// unknownValue = [1, 2, 3];
+// unknownValue = 42.33455;
 
-if (typeof unknownValue === 'number') {
-    unknownValue.toFixed(2);
-}
+// if (typeof unknownValue === 'number') {
+//     unknownValue.toFixed(2);
+// }
 
-function runSomeCode() {
-    const random = Math.random();
-    if (random < 0.5) {
-        throw new Error('there was error...');
-    } else {
-        throw 'some error';
+// function runSomeCode() {
+//     const random = Math.random();
+//     if (random < 0.5) {
+//         throw new Error('there was error...');
+//     } else {
+//         throw 'some error';
+//     }
+// }
+
+// try {
+//     runSomeCode();
+// } catch (error) {
+//     if (error instanceof Error) {
+//         console.log(error.message);
+//     } else {
+//         console.log(error)
+//     }
+// }
+
+
+// let someValue: never = 'hello'
+
+type Theme = 'light' | 'dark'
+
+function checkTheme(theme:Theme): void {
+    if (theme === 'light') {
+        console.log('light theme');
+        return;
     }
+    if (theme === 'dark') {
+        console.log('dark theme');
+        return;
+    }
+    theme
 }
 
-try {
-    runSomeCode();
-} catch (error) {
-    if (error instanceof Error) {
-        console.log(error.message);
-    } else {
-        console.log(error)
+enum Color {
+    Red,
+    Blue,
+    Green,
+}
+
+function getColorName(color: Color) {
+    switch (color) {
+        case Color.Red:
+            return 'Red';
+        case Color.Blue:
+            return 'Blue';
+        case Color.Green:
+            return 'Green';
+        default:
+            // at build time
+            let unexpectedColor: never = color;
+            // at runtime
+            throw new Error(`Unexpected color value: ${color}`);
     }
 }
