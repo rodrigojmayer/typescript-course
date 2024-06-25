@@ -571,38 +571,59 @@
 
 // let someValue: never = 'hello'
 
-type Theme = 'light' | 'dark'
+// type Theme = 'light' | 'dark'
 
-function checkTheme(theme:Theme): void {
-    if (theme === 'light') {
-        console.log('light theme');
+// function checkTheme(theme:Theme): void {
+//     if (theme === 'light') {
+//         console.log('light theme');
+//         return;
+//     }
+//     if (theme === 'dark') {
+//         console.log('dark theme');
+//         return;
+//     }
+//     theme
+// }
+
+// enum Color {
+//     Red,
+//     Blue,
+//     Green,
+// }
+
+// function getColorName(color: Color) {
+//     switch (color) {
+//         case Color.Red:
+//             return 'Red';
+//         case Color.Blue:
+//             return 'Blue';
+//         case Color.Green:
+//             return 'Green';
+//         default:
+//             // at build time
+//             let unexpectedColor: never = color;
+//             // at runtime
+//             throw new Error(`Unexpected color value: ${color}`);
+//     }
+// }
+
+
+ type ValueType = string | number | boolean;
+
+ let value: ValueType;
+ const random = Math.random();
+ value = random < 0.33 ? 'Hello' : random < 0.66 ? 123.456 : true;
+
+ function checkValue(value:ValueType):void {
+    if(typeof value === 'string') {
+        console.log(value.toLowerCase());
         return;
     }
-    if (theme === 'dark') {
-        console.log('dark theme');
+    if(typeof value === 'number') {
+        console.log(value.toFixed(2));
         return;
     }
-    theme
-}
+    console.log(`boolean: ${value}`);
 
-enum Color {
-    Red,
-    Blue,
-    Green,
-}
-
-function getColorName(color: Color) {
-    switch (color) {
-        case Color.Red:
-            return 'Red';
-        case Color.Blue:
-            return 'Blue';
-        case Color.Green:
-            return 'Green';
-        default:
-            // at build time
-            let unexpectedColor: never = color;
-            // at runtime
-            throw new Error(`Unexpected color value: ${color}`);
-    }
-}
+ }
+ checkValue(value)
