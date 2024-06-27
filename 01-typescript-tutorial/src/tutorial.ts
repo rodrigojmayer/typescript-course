@@ -630,22 +630,34 @@
 
 
 
-type Dog = { type: 'dog'; name: string; bark: () => void }
-type Cat = { type: 'cat'; name: string; meow: () => void }
-type Animal = Dog | Cat 
+// type Dog = { type: 'dog'; name: string; bark: () => void }
+// type Cat = { type: 'cat'; name: string; meow: () => void }
+// type Animal = Dog | Cat 
 
-// function makeSound(animal: Animal) {
-//     if (animal.type === 'dog') {
+// // function makeSound(animal: Animal) {
+// //     if (animal.type === 'dog') {
+// //         animal.bark()
+// //     } else {
+// //         animal.meow()
+// //     }
+// // }
+
+// function makeSound(animal:Animal) {
+//     if('bark' in animal) {
 //         animal.bark()
 //     } else {
 //         animal.meow()
 //     }
 // }
 
-function makeSound(animal:Animal) {
-    if('bark' in animal) {
-        animal.bark()
+
+function printLength (str: string | null | undefined) {
+
+    if(str) {
+        console.log(str.length)
     } else {
-        animal.meow()
+        console.log('No string provided')
     }
 }
+
+printLength(null)
