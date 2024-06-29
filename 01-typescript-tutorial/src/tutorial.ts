@@ -685,3 +685,24 @@
 
 // console.log(year)
 // console.log(random)
+
+
+type Student = {
+    name: string;
+    study: () => void;
+}
+
+type User = {
+    name: string;
+    login: () => void;
+}
+
+type Person = Student | User;
+
+const randomPerson = (): Person => {
+    return Math.random() > 0.5
+        ? { name: 'john', study: () => console.log('Studying') }
+        : { name: 'mary', login: () => console.log('Logging in') }
+}
+
+const person= randomPerson()
