@@ -706,3 +706,14 @@ const randomPerson = (): Person => {
 }
 
 const person= randomPerson()
+
+function isStudent(person: Person):person is Student{
+    // return 'study' in person
+    return (person as Student).study !== undefined;
+}
+
+if(isStudent(person)){
+    person.study();
+} else {
+    person.login()
+}
